@@ -1,0 +1,42 @@
+# OCR 처리 시스템 의존성 패키지
+
+# FastAPI 및 웹 프레임워크
+fastapi
+uvicorn[standard]
+python-multipart
+
+# 데이터베이스
+sqlalchemy
+psycopg2-binary
+alembic
+
+# 인증 및 보안
+python-jose[cryptography]
+passlib[bcrypt]
+pydantic
+pydantic-settings
+
+# 데이터 처리
+pandas
+openpyxl
+numpy
+
+# AI 및 OCR
+openai
+
+# 유틸리티
+python-dotenv
+email-validator
+
+# 개발 도구
+pytest
+pytest-asyncio
+pytest-cov
+httpx
+
+# macOS Vision 프레임워크 (macOS에서만 필요)
+pyobjc
+
+# 기타 필요한 패키지들
+python-dateutil
+typing-extensions
