@@ -107,7 +107,7 @@ print('데이터베이스 테이블 생성 완료')
 ### 6. 서버 실행
 ```bash
 # 개발 서버 실행
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8001
 
 # 또는 Python으로 직접 실행
 python -m app.main
@@ -115,8 +115,8 @@ python -m app.main
 
 ### 7. API 문서 확인
 브라우저에서 다음 URL로 접속:
-- **Swagger UI**: http://localhost:8000/docs
-- **ReDoc**: http://localhost:8000/redoc
+- **Swagger UI**: http://localhost:8001/docs
+- **ReDoc**: http://localhost:8001/redoc
 
 ## 📚 API 문서
 
@@ -146,7 +146,7 @@ Content-Type: application/json
 
 **사용 예시**
 ```bash
-curl -X POST "http://localhost:8000/auth/register" \
+curl -X POST "http://localhost:8001/auth/register" \
   -H "Content-Type: application/json" \
   -d '{
     "username": "testuser",
@@ -176,7 +176,7 @@ Content-Type: application/json
 
 **사용 예시**
 ```bash
-curl -X POST "http://localhost:8000/auth/login" \
+curl -X POST "http://localhost:8001/auth/login" \
   -H "Content-Type: application/json" \
   -d '{
     "username": "testuser",
@@ -202,7 +202,7 @@ Authorization: Bearer <token>
 
 **사용 예시**
 ```bash
-curl -X GET "http://localhost:8000/auth/me" \
+curl -X GET "http://localhost:8001/auth/me" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 
@@ -227,7 +227,7 @@ Content-Type: application/json
 
 **사용 예시**
 ```bash
-curl -X PUT "http://localhost:8000/auth/change-password" \
+curl -X PUT "http://localhost:8001/auth/change-password" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." \
   -H "Content-Type: application/json" \
   -d '{
@@ -261,7 +261,7 @@ Content-Type: multipart/form-data
 
 **사용 예시**
 ```bash
-curl -X POST "http://localhost:8000/ocr/upload-excel" \
+curl -X POST "http://localhost:8001/ocr/upload-excel" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." \
   -F "excel_file=@/path/to/lotte_data.xlsx" \
   -F "duty_free_type=lotte"
@@ -298,7 +298,7 @@ Content-Type: multipart/form-data
 
 **사용 예시**
 ```bash
-curl -X POST "http://localhost:8000/ocr/process-images" \
+curl -X POST "http://localhost:8001/ocr/process-images" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." \
   -F "zip_file=@/path/to/images.zip" \
   -F "duty_free_type=lotte"
@@ -339,7 +339,7 @@ Query Parameters:
 
 **사용 예시**
 ```bash
-curl -X GET "http://localhost:8000/ocr/results?page=1&limit=10&duty_free_type=lotte&start_date=2024-01-01&end_date=2024-03-20" \
+curl -X GET "http://localhost:8001/ocr/results?page=1&limit=10&duty_free_type=lotte&start_date=2024-01-01&end_date=2024-03-20" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 
@@ -367,7 +367,7 @@ Content-Type: application/json
 
 **사용 예시**
 ```bash
-curl -X PUT "http://localhost:8000/ocr/results/123" \
+curl -X PUT "http://localhost:8001/ocr/results/123" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." \
   -H "Content-Type: application/json" \
   -d '{
@@ -395,7 +395,7 @@ Content-Type: application/json
 
 **사용 예시**
 ```bash
-curl -X POST "http://localhost:8000/ocr/generate-receipts" \
+curl -X POST "http://localhost:8001/ocr/generate-receipts" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." \
   -H "Content-Type: application/json" \
   -d '{
@@ -421,7 +421,7 @@ Authorization: Bearer <token>
 
 **사용 예시**
 ```bash
-curl -X DELETE "http://localhost:8000/ocr/results/123" \
+curl -X DELETE "http://localhost:8001/ocr/results/123" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 
@@ -460,7 +460,7 @@ Query Parameters:
 
 **사용 예시**
 ```bash
-curl -X GET "http://localhost:8000/archive/history?page=1&limit=10&duty_free_type=lotte" \
+curl -X GET "http://localhost:8001/archive/history?page=1&limit=10&duty_free_type=lotte" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 
@@ -492,7 +492,7 @@ Authorization: Bearer <token>
 
 **사용 예시**
 ```bash
-curl -X GET "http://localhost:8000/archive/history/123" \
+curl -X GET "http://localhost:8001/archive/history/123" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 
@@ -511,7 +511,7 @@ Authorization: Bearer <token>
 
 **사용 예시**
 ```bash
-curl -X DELETE "http://localhost:8000/archive/history/123" \
+curl -X DELETE "http://localhost:8001/archive/history/123" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 
@@ -546,7 +546,7 @@ Query Parameters:
 
 **사용 예시**
 ```bash
-curl -X GET "http://localhost:8000/stats/daily?start_date=2024-01-01&end_date=2024-03-20&duty_free_type=lotte" \
+curl -X GET "http://localhost:8001/stats/daily?start_date=2024-01-01&end_date=2024-03-20&duty_free_type=lotte" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 
@@ -638,12 +638,12 @@ pytest --cov=app tests/
 ```bash
 # Dockerfile 생성 후
 docker build -t ocr-api .
-docker run -p 8000:8000 ocr-api
+docker run -p 8001:8001 ocr-api
 ```
 
 ### 프로덕션 서버 실행
 ```bash
-uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4
+uvicorn app.main:app --host 0.0.0.0 --port 8001 --workers 4
 ```
 
 ## 🔍 문제 해결
